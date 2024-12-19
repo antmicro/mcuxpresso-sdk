@@ -1,254 +1,238 @@
 ### This file was auto generated. Do not edit manually. ###
 package(default_visibility = ["//visibility:public"])
-
-COPTS = ["-Wno-cast-qual", "-Wno-error=strict-prototypes", "-Wno-redundant-decls", "-Wno-shadow", "-Wno-sign-compare", "-Wno-type-limits", "-Wno-undef", "-Wno-unused-function", "-Wno-unused-parameter", "-Wno-unused-variable", "-include $(location :app_include)"]
-
-exports_files(["empty.h"])
-
+COPTS = ['-Wno-cast-qual', '-Wno-error=strict-prototypes', '-Wno-redundant-decls', '-Wno-shadow', '-Wno-sign-compare', '-Wno-type-limits', '-Wno-undef', '-Wno-unused-function', '-Wno-unused-parameter', '-Wno-unused-variable']
 label_flag(
+    build_setting_default = "@pigweed//pw_build:empty_cc_library",
     name = "user_config",
-    build_setting_default = ":user_config.default",
-)
-label_flag(
-    name = "app_include",
-    build_setting_default = ":empty.h",
 )
 cc_library(
-    name = "user_config.default",
-    srcs = [],
-)
-cc_library(
+    copts = COPTS,
+    defines = ['BOOT_HEADER_ENABLE=1', 'FSL_SDK_DRIVER_QUICK_ACCESS_ENABLE=1', 'SERIAL_PORT_TYPE_UART=1'],
+    deps = [':user_config'],
+    hdrs = ['core/CMSIS/Core/Include/cmsis_compiler.h', 'core/CMSIS/Core/Include/cmsis_gcc.h', 'core/CMSIS/Core/Include/cmsis_version.h', 'core/CMSIS/Core/Include/core_cm33.h', 'core/CMSIS/Core/Include/mpu_armv8.h', 'core/CMSIS/Core/Include/tz_context.h', 'core/boards/evkmimxrt595/flash_config/flash_config.h', 'core/boards/evkmimxrt595/project_template/board.h', 'core/boards/evkmimxrt595/project_template/clock_config.h', 'core/boards/evkmimxrt595/project_template/peripherals.h', 'core/boards/evkmimxrt595/project_template/pin_mux.h', 'core/components/lists/fsl_component_generic_list.h', 'core/components/serial_manager/fsl_component_serial_manager.h', 'core/components/serial_manager/fsl_component_serial_port_internal.h', 'core/components/serial_manager/fsl_component_serial_port_uart.h', 'core/components/uart/fsl_adapter_uart.h', 'core/devices/MIMXRT595S/MIMXRT595S_cm33.h', 'core/devices/MIMXRT595S/MIMXRT595S_cm33_features.h', 'core/devices/MIMXRT595S/drivers/fsl_clock.h', 'core/devices/MIMXRT595S/drivers/fsl_iap.h', 'core/devices/MIMXRT595S/drivers/fsl_inputmux_connections.h', 'core/devices/MIMXRT595S/drivers/fsl_power.h', 'core/devices/MIMXRT595S/drivers/fsl_reset.h', 'core/devices/MIMXRT595S/drivers/fsl_usart_freertos.h', 'core/devices/MIMXRT595S/fsl_device_registers.h', 'core/devices/MIMXRT595S/system_MIMXRT595S_cm33.h', 'core/drivers/cache/cache64/fsl_cache.h', 'core/drivers/common/fsl_common.h', 'core/drivers/common/fsl_common_arm.h', 'core/drivers/flexcomm/fsl_flexcomm.h', 'core/drivers/flexcomm/i2c/fsl_i2c.h', 'core/drivers/flexcomm/spi/fsl_spi.h', 'core/drivers/flexcomm/usart/fsl_usart.h', 'core/drivers/flexcomm/usart/fsl_usart_dma.h', 'core/drivers/flexio/fsl_flexio.h', 'core/drivers/flexio/spi/fsl_flexio_spi.h', 'core/drivers/flexspi/fsl_flexspi.h', 'core/drivers/i3c/fsl_i3c.h', 'core/drivers/inputmux/fsl_inputmux.h', 'core/drivers/lpc_dma/fsl_dma.h', 'core/drivers/lpc_gpio/fsl_gpio.h', 'core/drivers/lpc_iopctl/fsl_iopctl.h', 'core/drivers/mu/fsl_mu.h', 'core/drivers/pint/fsl_pint.h', 'core/utilities/assert/fsl_assert.h', 'core/utilities/debug_console/fsl_debug_console.h', 'core/utilities/debug_console/fsl_debug_console_conf.h', 'core/utilities/str/fsl_str.h'],
+    includes = ['core/CMSIS/Core/Include', 'core/boards/evkmimxrt595/flash_config', 'core/boards/evkmimxrt595/project_template', 'core/components/lists', 'core/components/serial_manager', 'core/components/uart', 'core/devices/MIMXRT595S', 'core/devices/MIMXRT595S/drivers', 'core/drivers/cache/cache64', 'core/drivers/common', 'core/drivers/flexcomm', 'core/drivers/flexcomm/i2c', 'core/drivers/flexcomm/spi', 'core/drivers/flexcomm/usart', 'core/drivers/flexio', 'core/drivers/flexio/spi', 'core/drivers/flexspi', 'core/drivers/i3c', 'core/drivers/inputmux', 'core/drivers/lpc_dma', 'core/drivers/lpc_gpio', 'core/drivers/lpc_iopctl', 'core/drivers/mu', 'core/drivers/pint', 'core/utilities/assert', 'core/utilities/debug_console', 'core/utilities/str'],
     name = "commons",
-    srcs = [":app_include"],
-    deps = [":user_config"],
-    defines = ["BOOT_HEADER_ENABLE=1", "FSL_SDK_DRIVER_QUICK_ACCESS_ENABLE=1", "SERIAL_PORT_TYPE_UART=1"],
-    hdrs = ["core/CMSIS/Core/Include/cmsis_compiler.h", "core/CMSIS/Core/Include/cmsis_gcc.h", "core/CMSIS/Core/Include/cmsis_version.h", "core/CMSIS/Core/Include/core_cm33.h", "core/CMSIS/Core/Include/mpu_armv8.h", "core/CMSIS/Core/Include/tz_context.h", "core/boards/evkmimxrt595/flash_config/flash_config.h", "core/boards/evkmimxrt595/project_template/board.h", "core/boards/evkmimxrt595/project_template/clock_config.h", "core/boards/evkmimxrt595/project_template/peripherals.h", "core/boards/evkmimxrt595/project_template/pin_mux.h", "core/components/lists/fsl_component_generic_list.h", "core/components/serial_manager/fsl_component_serial_manager.h", "core/components/serial_manager/fsl_component_serial_port_internal.h", "core/components/serial_manager/fsl_component_serial_port_uart.h", "core/components/uart/fsl_adapter_uart.h", "core/devices/MIMXRT595S/MIMXRT595S_cm33.h", "core/devices/MIMXRT595S/MIMXRT595S_cm33_features.h", "core/devices/MIMXRT595S/drivers/fsl_clock.h", "core/devices/MIMXRT595S/drivers/fsl_iap.h", "core/devices/MIMXRT595S/drivers/fsl_inputmux_connections.h", "core/devices/MIMXRT595S/drivers/fsl_power.h", "core/devices/MIMXRT595S/drivers/fsl_reset.h", "core/devices/MIMXRT595S/drivers/fsl_usart_freertos.h", "core/devices/MIMXRT595S/fsl_device_registers.h", "core/devices/MIMXRT595S/system_MIMXRT595S_cm33.h", "core/drivers/cache/cache64/fsl_cache.h", "core/drivers/common/fsl_common.h", "core/drivers/common/fsl_common_arm.h", "core/drivers/flexcomm/fsl_flexcomm.h", "core/drivers/flexcomm/i2c/fsl_i2c.h", "core/drivers/flexcomm/spi/fsl_spi.h", "core/drivers/flexcomm/usart/fsl_usart.h", "core/drivers/flexcomm/usart/fsl_usart_dma.h", "core/drivers/flexio/fsl_flexio.h", "core/drivers/flexio/spi/fsl_flexio_spi.h", "core/drivers/flexspi/fsl_flexspi.h", "core/drivers/i3c/fsl_i3c.h", "core/drivers/inputmux/fsl_inputmux.h", "core/drivers/lpc_dma/fsl_dma.h", "core/drivers/lpc_gpio/fsl_gpio.h", "core/drivers/lpc_iopctl/fsl_iopctl.h", "core/drivers/mu/fsl_mu.h", "core/drivers/pint/fsl_pint.h", "core/utilities/assert/fsl_assert.h", "core/utilities/debug_console/fsl_debug_console.h", "core/utilities/debug_console/fsl_debug_console_conf.h", "core/utilities/str/fsl_str.h"],
-    includes = ["core/CMSIS/Core/Include", "core/boards/evkmimxrt595/flash_config", "core/boards/evkmimxrt595/project_template", "core/components/lists", "core/components/serial_manager", "core/components/uart", "core/devices/MIMXRT595S", "core/devices/MIMXRT595S/drivers", "core/drivers/cache/cache64", "core/drivers/common", "core/drivers/flexcomm", "core/drivers/flexcomm/i2c", "core/drivers/flexcomm/spi", "core/drivers/flexcomm/usart", "core/drivers/flexio", "core/drivers/flexio/spi", "core/drivers/flexspi", "core/drivers/i3c", "core/drivers/inputmux", "core/drivers/lpc_dma", "core/drivers/lpc_gpio", "core/drivers/lpc_iopctl", "core/drivers/mu", "core/drivers/pint", "core/utilities/assert", "core/utilities/debug_console", "core/utilities/str"],
-    copts = COPTS,
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons'],
     name = "CMSIS_Include_core_cm.MIMXRT595S",
-    srcs = [":app_include"],
-    deps = [":commons"],
-    copts = COPTS,
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.common.MIMXRT595S'],
     name = "component.lists.MIMXRT595S",
-    srcs = [":app_include", "core/components/lists/fsl_component_generic_list.c"],
-    deps = [":commons", ":platform.drivers.common.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/components/lists/fsl_component_generic_list.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':component.lists.MIMXRT595S', ':component.serial_manager_uart.MIMXRT595S', ':component.serial_manager_uart.MIMXRT595S.component.serial_manager.MIMXRT595S', ':platform.drivers.common.MIMXRT595S'],
     name = "component.serial_manager.MIMXRT595S",
-    srcs = [":app_include", "core/components/serial_manager/fsl_component_serial_manager.c"],
-    deps = [":commons", ":component.lists.MIMXRT595S", ":component.serial_manager_uart.MIMXRT595S", ":component.serial_manager_uart.MIMXRT595S.component.serial_manager.MIMXRT595S", ":platform.drivers.common.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/components/serial_manager/fsl_component_serial_manager.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':component.serial_manager_uart.MIMXRT595S.component.serial_manager.MIMXRT595S', ':component.usart_adapter.MIMXRT595S', ':platform.drivers.flexcomm_usart.MIMXRT595S'],
     name = "component.serial_manager_uart.MIMXRT595S",
-    srcs = [":app_include", "core/components/serial_manager/fsl_component_serial_port_uart.c"],
-    deps = [":commons", ":component.serial_manager_uart.MIMXRT595S.component.serial_manager.MIMXRT595S", ":component.usart_adapter.MIMXRT595S", ":platform.drivers.flexcomm_usart.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/components/serial_manager/fsl_component_serial_port_uart.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons'],
     name = "component.serial_manager_uart.MIMXRT595S.component.serial_manager.MIMXRT595S",
-    srcs = [":app_include", "core/components/serial_manager/fsl_component_serial_manager.c", "core/components/serial_manager/fsl_component_serial_port_uart.c"],
-    deps = [":commons"],
-    visibility = ["//visibility:private"],
-    copts = COPTS,
+    srcs = ['core/components/serial_manager/fsl_component_serial_manager.c', 'core/components/serial_manager/fsl_component_serial_port_uart.c'],
+    visibility = ['//visibility:private'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.common.MIMXRT595S', ':platform.drivers.flexcomm.MIMXRT595S', ':platform.drivers.flexcomm_usart.MIMXRT595S'],
     name = "component.usart_adapter.MIMXRT595S",
-    srcs = [":app_include", "core/components/uart/fsl_adapter_usart.c"],
-    deps = [":commons", ":platform.drivers.common.MIMXRT595S", ":platform.drivers.flexcomm.MIMXRT595S", ":platform.drivers.flexcomm_usart.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/components/uart/fsl_adapter_usart.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':CMSIS_Include_core_cm.MIMXRT595S', ':commons'],
     name = "device.MIMXRT595S_CMSIS.MIMXRT595S",
-    srcs = [":app_include", "core/devices/MIMXRT595S/system_MIMXRT595S_cm33.c"],
-    deps = [":CMSIS_Include_core_cm.MIMXRT595S", ":commons"],
-    copts = COPTS,
+    srcs = ['core/devices/MIMXRT595S/system_MIMXRT595S_cm33.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.common.MIMXRT595S'],
     name = "platform.drivers.cache_cache64.MIMXRT595S",
-    srcs = [":app_include", "core/drivers/cache/cache64/fsl_cache.c"],
-    deps = [":commons", ":platform.drivers.common.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/drivers/cache/cache64/fsl_cache.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.common.MIMXRT595S', ':platform.drivers.common.MIMXRT595S.platform.drivers.clock.MIMXRT595S'],
     name = "platform.drivers.clock.MIMXRT595S",
-    srcs = [":app_include", "core/devices/MIMXRT595S/drivers/fsl_clock.c"],
-    deps = [":commons", ":platform.drivers.common.MIMXRT595S", ":platform.drivers.common.MIMXRT595S.platform.drivers.clock.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/devices/MIMXRT595S/drivers/fsl_clock.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':device.MIMXRT595S_CMSIS.MIMXRT595S', ':platform.drivers.common.MIMXRT595S.platform.drivers.clock.MIMXRT595S', ':platform.drivers.reset.MIMXRT595S', ':platform.drivers.reset.MIMXRT595S.platform.drivers.common.MIMXRT595S'],
     name = "platform.drivers.common.MIMXRT595S",
-    srcs = [":app_include", "core/drivers/common/fsl_common.c", "core/drivers/common/fsl_common_arm.c"],
-    deps = [":commons", ":device.MIMXRT595S_CMSIS.MIMXRT595S", ":platform.drivers.common.MIMXRT595S.platform.drivers.clock.MIMXRT595S", ":platform.drivers.reset.MIMXRT595S", ":platform.drivers.reset.MIMXRT595S.platform.drivers.common.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/drivers/common/fsl_common.c', 'core/drivers/common/fsl_common_arm.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons'],
     name = "platform.drivers.common.MIMXRT595S.platform.drivers.clock.MIMXRT595S",
-    srcs = [":app_include", "core/devices/MIMXRT595S/drivers/fsl_clock.c", "core/drivers/common/fsl_common.c", "core/drivers/common/fsl_common_arm.c"],
-    deps = [":commons"],
-    visibility = ["//visibility:private"],
-    copts = COPTS,
+    srcs = ['core/devices/MIMXRT595S/drivers/fsl_clock.c', 'core/drivers/common/fsl_common.c', 'core/drivers/common/fsl_common_arm.c'],
+    visibility = ['//visibility:private'],
 )
 cc_library(
+    alwayslink = True,
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.iap.MIMXRT595S'],
     name = "platform.drivers.flash_config.evkmimxrt595.MIMXRT595S",
-    srcs = [":app_include", "core/boards/evkmimxrt595/flash_config/flash_config.c"],
-    deps = [":commons", ":platform.drivers.iap.MIMXRT595S"],
-    alwayslink = 1,
-    copts = COPTS,
+    srcs = ['core/boards/evkmimxrt595/flash_config/flash_config.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.common.MIMXRT595S'],
     name = "platform.drivers.flexcomm.MIMXRT595S",
-    srcs = [":app_include", "core/drivers/flexcomm/fsl_flexcomm.c"],
-    deps = [":commons", ":platform.drivers.common.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/drivers/flexcomm/fsl_flexcomm.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.common.MIMXRT595S', ':platform.drivers.flexcomm.MIMXRT595S'],
     name = "platform.drivers.flexcomm_i2c.MIMXRT595S",
-    srcs = [":app_include", "core/drivers/flexcomm/i2c/fsl_i2c.c"],
-    deps = [":commons", ":platform.drivers.common.MIMXRT595S", ":platform.drivers.flexcomm.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/drivers/flexcomm/i2c/fsl_i2c.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.common.MIMXRT595S', ':platform.drivers.flexcomm.MIMXRT595S'],
     name = "platform.drivers.flexcomm_spi.MIMXRT595S",
-    srcs = [":app_include", "core/drivers/flexcomm/spi/fsl_spi.c"],
-    deps = [":commons", ":platform.drivers.common.MIMXRT595S", ":platform.drivers.flexcomm.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/drivers/flexcomm/spi/fsl_spi.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.flexcomm.MIMXRT595S'],
     name = "platform.drivers.flexcomm_usart.MIMXRT595S",
-    srcs = [":app_include", "core/drivers/flexcomm/usart/fsl_usart.c"],
-    deps = [":commons", ":platform.drivers.flexcomm.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/drivers/flexcomm/usart/fsl_usart.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.flexcomm.MIMXRT595S', ':platform.drivers.flexcomm_usart.MIMXRT595S', ':platform.drivers.lpc_dma.MIMXRT595S'],
     name = "platform.drivers.flexcomm_usart_dma.MIMXRT595S",
-    srcs = [":app_include", "core/drivers/flexcomm/usart/fsl_usart_dma.c"],
-    deps = [":commons", ":platform.drivers.flexcomm.MIMXRT595S", ":platform.drivers.flexcomm_usart.MIMXRT595S", ":platform.drivers.lpc_dma.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/drivers/flexcomm/usart/fsl_usart_dma.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.flexcomm.MIMXRT595S', ':platform.drivers.flexcomm_usart.MIMXRT595S'],
     name = "platform.drivers.flexcomm_usart_freertos.MIMXRT595S",
-    srcs = [":app_include", "core/devices/MIMXRT595S/drivers/fsl_usart_freertos.c"],
-    deps = [":commons", ":platform.drivers.flexcomm.MIMXRT595S", ":platform.drivers.flexcomm_usart.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/devices/MIMXRT595S/drivers/fsl_usart_freertos.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.common.MIMXRT595S'],
     name = "platform.drivers.flexio.MIMXRT595S",
-    srcs = [":app_include", "core/drivers/flexio/fsl_flexio.c"],
-    deps = [":commons", ":platform.drivers.common.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/drivers/flexio/fsl_flexio.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.flexio.MIMXRT595S'],
     name = "platform.drivers.flexio_spi.MIMXRT595S",
-    srcs = [":app_include", "core/drivers/flexio/spi/fsl_flexio_spi.c"],
-    deps = [":commons", ":platform.drivers.flexio.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/drivers/flexio/spi/fsl_flexio_spi.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.common.MIMXRT595S'],
     name = "platform.drivers.flexspi.MIMXRT595S",
-    srcs = [":app_include", "core/drivers/flexspi/fsl_flexspi.c"],
-    deps = [":commons", ":platform.drivers.common.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/drivers/flexspi/fsl_flexspi.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.common.MIMXRT595S'],
     name = "platform.drivers.i3c.MIMXRT595S",
-    srcs = [":app_include", "core/drivers/i3c/fsl_i3c.c"],
-    deps = [":commons", ":platform.drivers.common.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/drivers/i3c/fsl_i3c.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.common.MIMXRT595S'],
     name = "platform.drivers.iap.MIMXRT595S",
-    srcs = [":app_include", "core/devices/MIMXRT595S/drivers/fsl_iap.c"],
-    deps = [":commons", ":platform.drivers.common.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/devices/MIMXRT595S/drivers/fsl_iap.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.common.MIMXRT595S', ':platform.drivers.inputmux_connections.MIMXRT595S'],
     name = "platform.drivers.inputmux.MIMXRT595S",
-    srcs = [":app_include", "core/drivers/inputmux/fsl_inputmux.c"],
-    deps = [":commons", ":platform.drivers.common.MIMXRT595S", ":platform.drivers.inputmux_connections.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/drivers/inputmux/fsl_inputmux.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.common.MIMXRT595S'],
     name = "platform.drivers.inputmux_connections.MIMXRT595S",
-    srcs = [":app_include"],
-    deps = [":commons", ":platform.drivers.common.MIMXRT595S"],
-    copts = COPTS,
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.common.MIMXRT595S'],
     name = "platform.drivers.lpc_dma.MIMXRT595S",
-    srcs = [":app_include", "core/drivers/lpc_dma/fsl_dma.c"],
-    deps = [":commons", ":platform.drivers.common.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/drivers/lpc_dma/fsl_dma.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.common.MIMXRT595S'],
     name = "platform.drivers.lpc_gpio.MIMXRT595S",
-    srcs = [":app_include", "core/drivers/lpc_gpio/fsl_gpio.c"],
-    deps = [":commons", ":platform.drivers.common.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/drivers/lpc_gpio/fsl_gpio.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.common.MIMXRT595S'],
     name = "platform.drivers.lpc_iopctl.MIMXRT595S",
-    srcs = [":app_include"],
-    deps = [":commons", ":platform.drivers.common.MIMXRT595S"],
-    copts = COPTS,
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.common.MIMXRT595S'],
     name = "platform.drivers.mu.MIMXRT595S",
-    srcs = [":app_include", "core/drivers/mu/fsl_mu.c"],
-    deps = [":commons", ":platform.drivers.common.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/drivers/mu/fsl_mu.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.common.MIMXRT595S'],
     name = "platform.drivers.pint.MIMXRT595S",
-    srcs = [":app_include", "core/drivers/pint/fsl_pint.c"],
-    deps = [":commons", ":platform.drivers.common.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/drivers/pint/fsl_pint.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.common.MIMXRT595S'],
     name = "platform.drivers.power.MIMXRT595S",
-    srcs = [":app_include", "core/devices/MIMXRT595S/drivers/fsl_power.c"],
-    deps = [":commons", ":platform.drivers.common.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/devices/MIMXRT595S/drivers/fsl_power.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.reset.MIMXRT595S.platform.drivers.common.MIMXRT595S'],
     name = "platform.drivers.reset.MIMXRT595S",
-    srcs = [":app_include", "core/devices/MIMXRT595S/drivers/fsl_reset.c"],
-    deps = [":commons", ":platform.drivers.reset.MIMXRT595S.platform.drivers.common.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/devices/MIMXRT595S/drivers/fsl_reset.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons'],
     name = "platform.drivers.reset.MIMXRT595S.platform.drivers.common.MIMXRT595S",
-    srcs = [":app_include", "core/devices/MIMXRT595S/drivers/fsl_reset.c", "core/drivers/common/fsl_common.c", "core/drivers/common/fsl_common_arm.c"],
-    deps = [":commons"],
-    visibility = ["//visibility:private"],
-    copts = COPTS,
+    srcs = ['core/devices/MIMXRT595S/drivers/fsl_reset.c', 'core/drivers/common/fsl_common.c', 'core/drivers/common/fsl_common_arm.c'],
+    visibility = ['//visibility:private'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':platform.drivers.common.MIMXRT595S', ':utility.debug_console.MIMXRT595S'],
     name = "platform.utilities.assert.MIMXRT595S",
-    srcs = [":app_include", "core/utilities/assert/fsl_assert.c"],
-    deps = [":commons", ":platform.drivers.common.MIMXRT595S", ":utility.debug_console.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/utilities/assert/fsl_assert.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':component.serial_manager.MIMXRT595S', ':component.usart_adapter.MIMXRT595S', ':platform.drivers.cache_cache64.MIMXRT595S', ':platform.drivers.clock.MIMXRT595S', ':platform.drivers.common.MIMXRT595S', ':platform.drivers.flash_config.evkmimxrt595.MIMXRT595S', ':platform.drivers.flexcomm_usart.MIMXRT595S', ':platform.drivers.flexspi.MIMXRT595S', ':platform.drivers.lpc_gpio.MIMXRT595S', ':platform.drivers.lpc_iopctl.MIMXRT595S', ':platform.drivers.power.MIMXRT595S', ':platform.drivers.reset.MIMXRT595S', ':platform.utilities.assert.MIMXRT595S', ':utility.debug_console.MIMXRT595S'],
     name = "project_template.evkmimxrt595.MIMXRT595S",
-    srcs = [":app_include", "core/boards/evkmimxrt595/project_template/board.c", "core/boards/evkmimxrt595/project_template/clock_config.c", "core/boards/evkmimxrt595/project_template/peripherals.c", "core/boards/evkmimxrt595/project_template/pin_mux.c"],
-    deps = [":commons", ":component.serial_manager.MIMXRT595S", ":component.usart_adapter.MIMXRT595S", ":platform.drivers.cache_cache64.MIMXRT595S", ":platform.drivers.clock.MIMXRT595S", ":platform.drivers.common.MIMXRT595S", ":platform.drivers.flash_config.evkmimxrt595.MIMXRT595S", ":platform.drivers.flexcomm_usart.MIMXRT595S", ":platform.drivers.flexspi.MIMXRT595S", ":platform.drivers.lpc_gpio.MIMXRT595S", ":platform.drivers.lpc_iopctl.MIMXRT595S", ":platform.drivers.power.MIMXRT595S", ":platform.drivers.reset.MIMXRT595S", ":platform.utilities.assert.MIMXRT595S", ":utility.debug_console.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/boards/evkmimxrt595/project_template/board.c', 'core/boards/evkmimxrt595/project_template/clock_config.c', 'core/boards/evkmimxrt595/project_template/pin_mux.c', 'core/boards/evkmimxrt595/project_template/peripherals.c'],
 )
 cc_library(
+    copts = COPTS,
+    deps = [':commons', ':component.serial_manager.MIMXRT595S', ':platform.drivers.common.MIMXRT595S', ':utility.str.MIMXRT595S'],
     name = "utility.debug_console.MIMXRT595S",
-    srcs = [":app_include", "core/utilities/debug_console/fsl_debug_console.c"],
-    deps = [":commons", ":component.serial_manager.MIMXRT595S", ":platform.drivers.common.MIMXRT595S", ":utility.str.MIMXRT595S"],
-    copts = COPTS,
+    srcs = ['core/utilities/debug_console/fsl_debug_console.c'],
 )
 cc_library(
-    name = "utility.str.MIMXRT595S",
-    srcs = [":app_include", "core/utilities/str/fsl_str.c"],
-    deps = [":commons", ":platform.drivers.common.MIMXRT595S"],
     copts = COPTS,
+    deps = [':commons', ':platform.drivers.common.MIMXRT595S'],
+    name = "utility.str.MIMXRT595S",
+    srcs = ['core/utilities/str/fsl_str.c'],
 )
