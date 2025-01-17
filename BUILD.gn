@@ -1,0 +1,589 @@
+### This file was auto generated. Do not edit manually. ###
+import("//build_overrides/pigweed.gni")
+import("$dir_pw_build/target_types.gni")
+import("mcuxpresso.gni")
+pw_static_library("CMSIS_Include_core_cm.MIMXRT595S") {
+  public = [
+    "core/CMSIS/Core/Include/cmsis_compiler.h",
+    "core/CMSIS/Core/Include/cmsis_gcc.h",
+    "core/CMSIS/Core/Include/cmsis_version.h",
+    "core/CMSIS/Core/Include/core_cm33.h",
+    "core/CMSIS/Core/Include/mpu_armv8.h",
+    "core/CMSIS/Core/Include/tz_context.h",
+  ]
+  public_configs = [ ":CMSIS_Include_core_cm.MIMXRT595S__config" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps = [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("CMSIS_Include_core_cm.MIMXRT595S__config") {
+  include_dirs = [ "core/CMSIS/Core/Include" ]
+}
+pw_static_library("component.lists.MIMXRT595S") {
+  public = [ "core/components/lists/fsl_component_generic_list.h" ]
+  public_configs = [ ":component.lists.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.common.MIMXRT595S",
+  ]
+  sources = [ "core/components/lists/fsl_component_generic_list.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("component.lists.MIMXRT595S__config") {
+  include_dirs = [ "core/components/lists" ]
+}
+pw_static_library("component.serial_manager.MIMXRT595S") {
+  public = [
+    "core/components/serial_manager/fsl_component_serial_manager.h",
+    "core/components/serial_manager/fsl_component_serial_port_internal.h",
+    "core/components/serial_manager/fsl_component_serial_port_uart.h",
+  ]
+  public_configs = [ ":component.serial_manager.MIMXRT595S__config" ]
+  public_deps = [
+    ":component.lists.MIMXRT595S",
+    ":component.usart_adapter.MIMXRT595S",
+    ":platform.drivers.common.MIMXRT595S",
+    ":platform.drivers.flexcomm_usart.MIMXRT595S",
+  ]
+  sources = [
+    "core/components/serial_manager/fsl_component_serial_manager.c",
+    "core/components/serial_manager/fsl_component_serial_port_uart.c",
+  ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("component.serial_manager.MIMXRT595S__config") {
+  defines = [ "SERIAL_PORT_TYPE_UART=1" ]
+  include_dirs = [ "core/components/serial_manager" ]
+}
+pw_static_library("component.serial_manager_uart.MIMXRT595S") {
+  public = [
+    "core/components/serial_manager/fsl_component_serial_manager.h",
+    "core/components/serial_manager/fsl_component_serial_port_internal.h",
+    "core/components/serial_manager/fsl_component_serial_port_uart.h",
+  ]
+  public_configs = [ ":component.serial_manager_uart.MIMXRT595S__config" ]
+  public_deps = [
+    ":component.lists.MIMXRT595S",
+    ":component.usart_adapter.MIMXRT595S",
+    ":platform.drivers.common.MIMXRT595S",
+    ":platform.drivers.flexcomm_usart.MIMXRT595S",
+  ]
+  sources = [
+    "core/components/serial_manager/fsl_component_serial_manager.c",
+    "core/components/serial_manager/fsl_component_serial_port_uart.c",
+  ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("component.serial_manager_uart.MIMXRT595S__config") {
+  defines = [ "SERIAL_PORT_TYPE_UART=1" ]
+  include_dirs = [ "core/components/serial_manager" ]
+}
+pw_static_library("component.usart_adapter.MIMXRT595S") {
+  public = [ "core/components/uart/fsl_adapter_uart.h" ]
+  public_configs = [ ":component.usart_adapter.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.common.MIMXRT595S",
+    ":platform.drivers.flexcomm.MIMXRT595S",
+    ":platform.drivers.flexcomm_usart.MIMXRT595S",
+  ]
+  sources = [ "core/components/uart/fsl_adapter_usart.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("component.usart_adapter.MIMXRT595S__config") {
+  include_dirs = [ "core/components/uart" ]
+}
+pw_static_library("device.MIMXRT595S_CMSIS.MIMXRT595S") {
+  public = [
+    "core/devices/MIMXRT595S/MIMXRT595S_cm33.h",
+    "core/devices/MIMXRT595S/MIMXRT595S_cm33_features.h",
+    "core/devices/MIMXRT595S/fsl_device_registers.h",
+    "core/devices/MIMXRT595S/system_MIMXRT595S_cm33.h",
+  ]
+  public_configs = [ ":device.MIMXRT595S_CMSIS.MIMXRT595S__config" ]
+  public_deps = [
+    ":CMSIS_Include_core_cm.MIMXRT595S",
+  ]
+  sources = [ "core/devices/MIMXRT595S/system_MIMXRT595S_cm33.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("device.MIMXRT595S_CMSIS.MIMXRT595S__config") {
+  include_dirs = [ "core/devices/MIMXRT595S" ]
+}
+pw_static_library("platform.drivers.cache_cache64.MIMXRT595S") {
+  public = [ "core/drivers/cache/cache64/fsl_cache.h" ]
+  public_configs = [ ":platform.drivers.cache_cache64.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.common.MIMXRT595S",
+  ]
+  sources = [ "core/drivers/cache/cache64/fsl_cache.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.cache_cache64.MIMXRT595S__config") {
+  include_dirs = [ "core/drivers/cache/cache64" ]
+}
+pw_static_library("platform.drivers.clock.MIMXRT595S") {
+  public = [
+    "core/devices/MIMXRT595S/drivers/fsl_clock.h",
+    "core/devices/MIMXRT595S/drivers/fsl_reset.h",
+    "core/drivers/common/fsl_common.h",
+    "core/drivers/common/fsl_common_arm.h",
+  ]
+  public_configs = [ ":platform.drivers.clock.MIMXRT595S__config" ]
+  public_deps = [
+    ":device.MIMXRT595S_CMSIS.MIMXRT595S",
+  ]
+  sources = [
+    "core/devices/MIMXRT595S/drivers/fsl_clock.c",
+    "core/devices/MIMXRT595S/drivers/fsl_reset.c",
+    "core/drivers/common/fsl_common.c",
+    "core/drivers/common/fsl_common_arm.c",
+  ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.clock.MIMXRT595S__config") {
+  include_dirs = [
+    "core/devices/MIMXRT595S/drivers",
+    "core/drivers/common",
+  ]
+}
+pw_static_library("platform.drivers.common.MIMXRT595S") {
+  public = [
+    "core/devices/MIMXRT595S/drivers/fsl_clock.h",
+    "core/devices/MIMXRT595S/drivers/fsl_reset.h",
+    "core/drivers/common/fsl_common.h",
+    "core/drivers/common/fsl_common_arm.h",
+  ]
+  public_configs = [ ":platform.drivers.common.MIMXRT595S__config" ]
+  public_deps = [
+    ":device.MIMXRT595S_CMSIS.MIMXRT595S",
+  ]
+  sources = [
+    "core/devices/MIMXRT595S/drivers/fsl_clock.c",
+    "core/devices/MIMXRT595S/drivers/fsl_reset.c",
+    "core/drivers/common/fsl_common.c",
+    "core/drivers/common/fsl_common_arm.c",
+  ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.common.MIMXRT595S__config") {
+  include_dirs = [
+    "core/devices/MIMXRT595S/drivers",
+    "core/drivers/common",
+  ]
+}
+pw_source_set("platform.drivers.flash_config.evkmimxrt595.MIMXRT595S") {
+  public = [ "core/boards/evkmimxrt595/flash_config/flash_config.h" ]
+  public_configs = [ ":platform.drivers.flash_config.evkmimxrt595.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.iap.MIMXRT595S",
+  ]
+  sources = [ "core/boards/evkmimxrt595/flash_config/flash_config.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.flash_config.evkmimxrt595.MIMXRT595S__config") {
+  defines = [ "BOOT_HEADER_ENABLE=1" ]
+  include_dirs = [ "core/boards/evkmimxrt595/flash_config" ]
+}
+pw_static_library("platform.drivers.flexcomm.MIMXRT595S") {
+  public = [ "core/drivers/flexcomm/fsl_flexcomm.h" ]
+  public_configs = [ ":platform.drivers.flexcomm.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.common.MIMXRT595S",
+  ]
+  sources = [ "core/drivers/flexcomm/fsl_flexcomm.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.flexcomm.MIMXRT595S__config") {
+  include_dirs = [ "core/drivers/flexcomm" ]
+}
+pw_static_library("platform.drivers.flexcomm_i2c.MIMXRT595S") {
+  public = [ "core/drivers/flexcomm/i2c/fsl_i2c.h" ]
+  public_configs = [ ":platform.drivers.flexcomm_i2c.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.common.MIMXRT595S",
+    ":platform.drivers.flexcomm.MIMXRT595S",
+  ]
+  sources = [ "core/drivers/flexcomm/i2c/fsl_i2c.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.flexcomm_i2c.MIMXRT595S__config") {
+  include_dirs = [ "core/drivers/flexcomm/i2c" ]
+}
+pw_static_library("platform.drivers.flexcomm_spi.MIMXRT595S") {
+  public = [ "core/drivers/flexcomm/spi/fsl_spi.h" ]
+  public_configs = [ ":platform.drivers.flexcomm_spi.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.common.MIMXRT595S",
+    ":platform.drivers.flexcomm.MIMXRT595S",
+  ]
+  sources = [ "core/drivers/flexcomm/spi/fsl_spi.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.flexcomm_spi.MIMXRT595S__config") {
+  include_dirs = [ "core/drivers/flexcomm/spi" ]
+}
+pw_static_library("platform.drivers.flexcomm_usart.MIMXRT595S") {
+  public = [ "core/drivers/flexcomm/usart/fsl_usart.h" ]
+  public_configs = [ ":platform.drivers.flexcomm_usart.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.flexcomm.MIMXRT595S",
+  ]
+  sources = [ "core/drivers/flexcomm/usart/fsl_usart.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.flexcomm_usart.MIMXRT595S__config") {
+  include_dirs = [ "core/drivers/flexcomm/usart" ]
+}
+pw_static_library("platform.drivers.flexcomm_usart_dma.MIMXRT595S") {
+  public = [ "core/drivers/flexcomm/usart/fsl_usart_dma.h" ]
+  public_configs = [ ":platform.drivers.flexcomm_usart_dma.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.flexcomm.MIMXRT595S",
+    ":platform.drivers.flexcomm_usart.MIMXRT595S",
+    ":platform.drivers.lpc_dma.MIMXRT595S",
+  ]
+  sources = [ "core/drivers/flexcomm/usart/fsl_usart_dma.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.flexcomm_usart_dma.MIMXRT595S__config") {
+  include_dirs = [ "core/drivers/flexcomm/usart" ]
+}
+pw_static_library("platform.drivers.flexcomm_usart_freertos.MIMXRT595S") {
+  public = [ "core/devices/MIMXRT595S/drivers/fsl_usart_freertos.h" ]
+  public_configs = [ ":platform.drivers.flexcomm_usart_freertos.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.flexcomm.MIMXRT595S",
+    ":platform.drivers.flexcomm_usart.MIMXRT595S",
+  ]
+  sources = [ "core/devices/MIMXRT595S/drivers/fsl_usart_freertos.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.flexcomm_usart_freertos.MIMXRT595S__config") {
+  include_dirs = [ "core/devices/MIMXRT595S/drivers" ]
+}
+pw_static_library("platform.drivers.flexio.MIMXRT595S") {
+  public = [ "core/drivers/flexio/fsl_flexio.h" ]
+  public_configs = [ ":platform.drivers.flexio.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.common.MIMXRT595S",
+  ]
+  sources = [ "core/drivers/flexio/fsl_flexio.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.flexio.MIMXRT595S__config") {
+  include_dirs = [ "core/drivers/flexio" ]
+}
+pw_static_library("platform.drivers.flexio_spi.MIMXRT595S") {
+  public = [ "core/drivers/flexio/spi/fsl_flexio_spi.h" ]
+  public_configs = [ ":platform.drivers.flexio_spi.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.flexio.MIMXRT595S",
+  ]
+  sources = [ "core/drivers/flexio/spi/fsl_flexio_spi.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.flexio_spi.MIMXRT595S__config") {
+  include_dirs = [ "core/drivers/flexio/spi" ]
+}
+pw_static_library("platform.drivers.flexspi.MIMXRT595S") {
+  public = [ "core/drivers/flexspi/fsl_flexspi.h" ]
+  public_configs = [ ":platform.drivers.flexspi.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.common.MIMXRT595S",
+  ]
+  sources = [ "core/drivers/flexspi/fsl_flexspi.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.flexspi.MIMXRT595S__config") {
+  include_dirs = [ "core/drivers/flexspi" ]
+}
+pw_static_library("platform.drivers.i3c.MIMXRT595S") {
+  public = [ "core/drivers/i3c/fsl_i3c.h" ]
+  public_configs = [ ":platform.drivers.i3c.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.common.MIMXRT595S",
+  ]
+  sources = [ "core/drivers/i3c/fsl_i3c.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.i3c.MIMXRT595S__config") {
+  include_dirs = [ "core/drivers/i3c" ]
+}
+pw_static_library("platform.drivers.iap.MIMXRT595S") {
+  public = [ "core/devices/MIMXRT595S/drivers/fsl_iap.h" ]
+  public_configs = [ ":platform.drivers.iap.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.common.MIMXRT595S",
+  ]
+  sources = [ "core/devices/MIMXRT595S/drivers/fsl_iap.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.iap.MIMXRT595S__config") {
+  include_dirs = [ "core/devices/MIMXRT595S/drivers" ]
+}
+pw_static_library("platform.drivers.inputmux.MIMXRT595S") {
+  public = [ "core/drivers/inputmux/fsl_inputmux.h" ]
+  public_configs = [ ":platform.drivers.inputmux.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.common.MIMXRT595S",
+    ":platform.drivers.inputmux_connections.MIMXRT595S",
+  ]
+  sources = [ "core/drivers/inputmux/fsl_inputmux.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.inputmux.MIMXRT595S__config") {
+  include_dirs = [ "core/drivers/inputmux" ]
+}
+pw_static_library("platform.drivers.inputmux_connections.MIMXRT595S") {
+  public = [ "core/devices/MIMXRT595S/drivers/fsl_inputmux_connections.h" ]
+  public_configs = [ ":platform.drivers.inputmux_connections.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.common.MIMXRT595S",
+  ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.inputmux_connections.MIMXRT595S__config") {
+  include_dirs = [ "core/devices/MIMXRT595S/drivers" ]
+}
+pw_static_library("platform.drivers.lpc_dma.MIMXRT595S") {
+  public = [ "core/drivers/lpc_dma/fsl_dma.h" ]
+  public_configs = [ ":platform.drivers.lpc_dma.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.common.MIMXRT595S",
+  ]
+  sources = [ "core/drivers/lpc_dma/fsl_dma.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.lpc_dma.MIMXRT595S__config") {
+  include_dirs = [ "core/drivers/lpc_dma" ]
+}
+pw_static_library("platform.drivers.lpc_gpio.MIMXRT595S") {
+  public = [ "core/drivers/lpc_gpio/fsl_gpio.h" ]
+  public_configs = [ ":platform.drivers.lpc_gpio.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.common.MIMXRT595S",
+  ]
+  sources = [ "core/drivers/lpc_gpio/fsl_gpio.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.lpc_gpio.MIMXRT595S__config") {
+  include_dirs = [ "core/drivers/lpc_gpio" ]
+}
+pw_static_library("platform.drivers.lpc_iopctl.MIMXRT595S") {
+  public = [ "core/drivers/lpc_iopctl/fsl_iopctl.h" ]
+  public_configs = [ ":platform.drivers.lpc_iopctl.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.common.MIMXRT595S",
+  ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.lpc_iopctl.MIMXRT595S__config") {
+  include_dirs = [ "core/drivers/lpc_iopctl" ]
+}
+pw_static_library("platform.drivers.mu.MIMXRT595S") {
+  public = [ "core/drivers/mu/fsl_mu.h" ]
+  public_configs = [ ":platform.drivers.mu.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.common.MIMXRT595S",
+  ]
+  sources = [ "core/drivers/mu/fsl_mu.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.mu.MIMXRT595S__config") {
+  include_dirs = [ "core/drivers/mu" ]
+}
+pw_static_library("platform.drivers.pint.MIMXRT595S") {
+  public = [ "core/drivers/pint/fsl_pint.h" ]
+  public_configs = [ ":platform.drivers.pint.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.common.MIMXRT595S",
+  ]
+  sources = [ "core/drivers/pint/fsl_pint.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.pint.MIMXRT595S__config") {
+  include_dirs = [ "core/drivers/pint" ]
+}
+pw_static_library("platform.drivers.power.MIMXRT595S") {
+  public = [ "core/devices/MIMXRT595S/drivers/fsl_power.h" ]
+  public_configs = [ ":platform.drivers.power.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.common.MIMXRT595S",
+  ]
+  sources = [ "core/devices/MIMXRT595S/drivers/fsl_power.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.power.MIMXRT595S__config") {
+  include_dirs = [ "core/devices/MIMXRT595S/drivers" ]
+}
+pw_static_library("platform.drivers.reset.MIMXRT595S") {
+  public = [
+    "core/devices/MIMXRT595S/drivers/fsl_clock.h",
+    "core/devices/MIMXRT595S/drivers/fsl_reset.h",
+    "core/drivers/common/fsl_common.h",
+    "core/drivers/common/fsl_common_arm.h",
+  ]
+  public_configs = [ ":platform.drivers.reset.MIMXRT595S__config" ]
+  public_deps = [
+    ":device.MIMXRT595S_CMSIS.MIMXRT595S",
+  ]
+  sources = [
+    "core/devices/MIMXRT595S/drivers/fsl_clock.c",
+    "core/devices/MIMXRT595S/drivers/fsl_reset.c",
+    "core/drivers/common/fsl_common.c",
+    "core/drivers/common/fsl_common_arm.c",
+  ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.drivers.reset.MIMXRT595S__config") {
+  include_dirs = [
+    "core/devices/MIMXRT595S/drivers",
+    "core/drivers/common",
+  ]
+}
+pw_static_library("platform.utilities.assert.MIMXRT595S") {
+  public = [ "core/utilities/assert/fsl_assert.h" ]
+  public_configs = [ ":platform.utilities.assert.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.common.MIMXRT595S",
+    ":utility.debug_console.MIMXRT595S",
+  ]
+  sources = [ "core/utilities/assert/fsl_assert.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("platform.utilities.assert.MIMXRT595S__config") {
+  include_dirs = [ "core/utilities/assert" ]
+}
+pw_static_library("project_template.evkmimxrt595.MIMXRT595S") {
+  public = [
+    "core/boards/evkmimxrt595/project_template/board.h",
+    "core/boards/evkmimxrt595/project_template/clock_config.h",
+    "core/boards/evkmimxrt595/project_template/peripherals.h",
+    "core/boards/evkmimxrt595/project_template/pin_mux.h",
+  ]
+  public_configs = [ ":project_template.evkmimxrt595.MIMXRT595S__config" ]
+  public_deps = [
+    ":component.serial_manager.MIMXRT595S",
+    ":component.usart_adapter.MIMXRT595S",
+    ":platform.drivers.cache_cache64.MIMXRT595S",
+    ":platform.drivers.clock.MIMXRT595S",
+    ":platform.drivers.common.MIMXRT595S",
+    ":platform.drivers.flash_config.evkmimxrt595.MIMXRT595S",
+    ":platform.drivers.flexcomm_usart.MIMXRT595S",
+    ":platform.drivers.flexspi.MIMXRT595S",
+    ":platform.drivers.lpc_gpio.MIMXRT595S",
+    ":platform.drivers.lpc_iopctl.MIMXRT595S",
+    ":platform.drivers.power.MIMXRT595S",
+    ":platform.drivers.reset.MIMXRT595S",
+    ":platform.utilities.assert.MIMXRT595S",
+    ":utility.debug_console.MIMXRT595S",
+  ]
+  sources = [
+    "core/boards/evkmimxrt595/project_template/board.c",
+    "core/boards/evkmimxrt595/project_template/clock_config.c",
+    "core/boards/evkmimxrt595/project_template/peripherals.c",
+    "core/boards/evkmimxrt595/project_template/pin_mux.c",
+  ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("project_template.evkmimxrt595.MIMXRT595S__config") {
+  defines = [ "FSL_SDK_DRIVER_QUICK_ACCESS_ENABLE=1" ]
+  include_dirs = [
+    "core/boards/evkmimxrt595/project_template",
+    "core/boards/evkmimxrt595/project_template",
+  ]
+}
+pw_static_library("utility.debug_console.MIMXRT595S") {
+  public = [
+    "core/utilities/debug_console/fsl_debug_console.h",
+    "core/utilities/debug_console/fsl_debug_console_conf.h",
+  ]
+  public_configs = [ ":utility.debug_console.MIMXRT595S__config" ]
+  public_deps = [
+    ":component.serial_manager.MIMXRT595S",
+    ":platform.drivers.common.MIMXRT595S",
+    ":utility.str.MIMXRT595S",
+  ]
+  sources = [ "core/utilities/debug_console/fsl_debug_console.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("utility.debug_console.MIMXRT595S__config") {
+  include_dirs = [ "core/utilities/debug_console" ]
+}
+pw_static_library("utility.str.MIMXRT595S") {
+  public = [ "core/utilities/str/fsl_str.h" ]
+  public_configs = [ ":utility.str.MIMXRT595S__config" ]
+  public_deps = [
+    ":platform.drivers.common.MIMXRT595S",
+  ]
+  sources = [ "core/utilities/str/fsl_str.c" ]
+  if (pw_third_party_mcuxpresso_CONFIG != "") {
+    public_deps += [ pw_third_party_mcuxpresso_CONFIG ]
+  }
+}
+config("utility.str.MIMXRT595S__config") {
+  include_dirs = [ "core/utilities/str" ]
+}

@@ -59,12 +59,12 @@ To generate this repository locally, you will have to [setup Pigweed](https://pi
 on your machine. After that, you can run this command to generate this repository.
 
 ```sh
-bazelisk run //pw_build_mcuxpresso/py:mcuxpresso_builder -- bazel \
-  EVK-MIMXRT595_manifest_v3_14.xml \
+bazelisk run //pw_build_mcuxpresso/py:mcuxpresso_builder -- EVK-MIMXRT595_manifest_v3_14.xml \
   --mcuxpresso-repo=https://github.com/nxp-mcuxpresso/mcux-sdk \
   --mcuxpresso-rev=MCUX_2.16.000 \
   --device-core=cm33_MIMXRT595S \
   --output-path=bazel-out/k8-fastbuild/bin/mcuxpresso-sdk \
+  --clean \
   --include \
   project_template.evkmimxrt595.MIMXRT595S \
   component.serial_manager_uart.MIMXRT595S \

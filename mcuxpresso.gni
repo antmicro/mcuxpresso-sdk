@@ -1,0 +1,4 @@
+declare_args() {
+  # The pw_source_set which provides the SDK specific configuration options.
+  pw_third_party_mcuxpresso_CONFIG = ""
+}
