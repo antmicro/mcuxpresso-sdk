@@ -3,6 +3,7 @@ import("//build_overrides/pigweed.gni")
 import("$dir_pw_build/target_types.gni")
 import("mcuxpresso.gni")
 pw_static_library("CMSIS_Include_core_cm.MIMXRT595S") {
+  check_includes = false
   public = [
     "core/CMSIS/Core/Include/cmsis_compiler.h",
     "core/CMSIS/Core/Include/cmsis_gcc.h",
@@ -20,6 +21,7 @@ config("CMSIS_Include_core_cm.MIMXRT595S__config") {
   include_dirs = [ "core/CMSIS/Core/Include" ]
 }
 pw_static_library("component.lists.MIMXRT595S") {
+  check_includes = false
   public = [ "core/components/lists/fsl_component_generic_list.h" ]
   public_configs = [ ":component.lists.MIMXRT595S__config" ]
   public_deps = [
@@ -34,6 +36,7 @@ config("component.lists.MIMXRT595S__config") {
   include_dirs = [ "core/components/lists" ]
 }
 pw_static_library("component.serial_manager.MIMXRT595S") {
+  check_includes = false
   public = [
     "core/components/serial_manager/fsl_component_serial_manager.h",
     "core/components/serial_manager/fsl_component_serial_port_internal.h",
@@ -59,6 +62,7 @@ config("component.serial_manager.MIMXRT595S__config") {
   include_dirs = [ "core/components/serial_manager" ]
 }
 pw_static_library("component.serial_manager_uart.MIMXRT595S") {
+  check_includes = false
   public = [
     "core/components/serial_manager/fsl_component_serial_manager.h",
     "core/components/serial_manager/fsl_component_serial_port_internal.h",
@@ -84,6 +88,7 @@ config("component.serial_manager_uart.MIMXRT595S__config") {
   include_dirs = [ "core/components/serial_manager" ]
 }
 pw_static_library("component.usart_adapter.MIMXRT595S") {
+  check_includes = false
   public = [ "core/components/uart/fsl_adapter_uart.h" ]
   public_configs = [ ":component.usart_adapter.MIMXRT595S__config" ]
   public_deps = [
@@ -100,6 +105,7 @@ config("component.usart_adapter.MIMXRT595S__config") {
   include_dirs = [ "core/components/uart" ]
 }
 pw_static_library("device.MIMXRT595S_CMSIS.MIMXRT595S") {
+  check_includes = false
   public = [
     "core/devices/MIMXRT595S/MIMXRT595S_cm33.h",
     "core/devices/MIMXRT595S/MIMXRT595S_cm33_features.h",
@@ -119,6 +125,7 @@ config("device.MIMXRT595S_CMSIS.MIMXRT595S__config") {
   include_dirs = [ "core/devices/MIMXRT595S" ]
 }
 pw_static_library("platform.drivers.cache_cache64.MIMXRT595S") {
+  check_includes = false
   public = [ "core/drivers/cache/cache64/fsl_cache.h" ]
   public_configs = [ ":platform.drivers.cache_cache64.MIMXRT595S__config" ]
   public_deps = [
@@ -133,6 +140,7 @@ config("platform.drivers.cache_cache64.MIMXRT595S__config") {
   include_dirs = [ "core/drivers/cache/cache64" ]
 }
 pw_static_library("platform.drivers.clock.MIMXRT595S") {
+  check_includes = false
   public = [
     "core/devices/MIMXRT595S/drivers/fsl_clock.h",
     "core/devices/MIMXRT595S/drivers/fsl_reset.h",
@@ -160,6 +168,7 @@ config("platform.drivers.clock.MIMXRT595S__config") {
   ]
 }
 pw_static_library("platform.drivers.common.MIMXRT595S") {
+  check_includes = false
   public = [
     "core/devices/MIMXRT595S/drivers/fsl_clock.h",
     "core/devices/MIMXRT595S/drivers/fsl_reset.h",
@@ -187,6 +196,7 @@ config("platform.drivers.common.MIMXRT595S__config") {
   ]
 }
 pw_source_set("platform.drivers.flash_config.evkmimxrt595.MIMXRT595S") {
+  check_includes = false
   public = [ "core/boards/evkmimxrt595/flash_config/flash_config.h" ]
   public_configs = [ ":platform.drivers.flash_config.evkmimxrt595.MIMXRT595S__config" ]
   public_deps = [
@@ -202,6 +212,7 @@ config("platform.drivers.flash_config.evkmimxrt595.MIMXRT595S__config") {
   include_dirs = [ "core/boards/evkmimxrt595/flash_config" ]
 }
 pw_static_library("platform.drivers.flexcomm.MIMXRT595S") {
+  check_includes = false
   public = [ "core/drivers/flexcomm/fsl_flexcomm.h" ]
   public_configs = [ ":platform.drivers.flexcomm.MIMXRT595S__config" ]
   public_deps = [
@@ -216,6 +227,7 @@ config("platform.drivers.flexcomm.MIMXRT595S__config") {
   include_dirs = [ "core/drivers/flexcomm" ]
 }
 pw_static_library("platform.drivers.flexcomm_i2c.MIMXRT595S") {
+  check_includes = false
   public = [ "core/drivers/flexcomm/i2c/fsl_i2c.h" ]
   public_configs = [ ":platform.drivers.flexcomm_i2c.MIMXRT595S__config" ]
   public_deps = [
@@ -231,6 +243,7 @@ config("platform.drivers.flexcomm_i2c.MIMXRT595S__config") {
   include_dirs = [ "core/drivers/flexcomm/i2c" ]
 }
 pw_static_library("platform.drivers.flexcomm_spi.MIMXRT595S") {
+  check_includes = false
   public = [ "core/drivers/flexcomm/spi/fsl_spi.h" ]
   public_configs = [ ":platform.drivers.flexcomm_spi.MIMXRT595S__config" ]
   public_deps = [
@@ -246,6 +259,7 @@ config("platform.drivers.flexcomm_spi.MIMXRT595S__config") {
   include_dirs = [ "core/drivers/flexcomm/spi" ]
 }
 pw_static_library("platform.drivers.flexcomm_usart.MIMXRT595S") {
+  check_includes = false
   public = [ "core/drivers/flexcomm/usart/fsl_usart.h" ]
   public_configs = [ ":platform.drivers.flexcomm_usart.MIMXRT595S__config" ]
   public_deps = [
@@ -260,6 +274,7 @@ config("platform.drivers.flexcomm_usart.MIMXRT595S__config") {
   include_dirs = [ "core/drivers/flexcomm/usart" ]
 }
 pw_static_library("platform.drivers.flexcomm_usart_dma.MIMXRT595S") {
+  check_includes = false
   public = [ "core/drivers/flexcomm/usart/fsl_usart_dma.h" ]
   public_configs = [ ":platform.drivers.flexcomm_usart_dma.MIMXRT595S__config" ]
   public_deps = [
@@ -276,6 +291,7 @@ config("platform.drivers.flexcomm_usart_dma.MIMXRT595S__config") {
   include_dirs = [ "core/drivers/flexcomm/usart" ]
 }
 pw_static_library("platform.drivers.flexcomm_usart_freertos.MIMXRT595S") {
+  check_includes = false
   public = [ "core/devices/MIMXRT595S/drivers/fsl_usart_freertos.h" ]
   public_configs = [ ":platform.drivers.flexcomm_usart_freertos.MIMXRT595S__config" ]
   public_deps = [
@@ -291,6 +307,7 @@ config("platform.drivers.flexcomm_usart_freertos.MIMXRT595S__config") {
   include_dirs = [ "core/devices/MIMXRT595S/drivers" ]
 }
 pw_static_library("platform.drivers.flexio.MIMXRT595S") {
+  check_includes = false
   public = [ "core/drivers/flexio/fsl_flexio.h" ]
   public_configs = [ ":platform.drivers.flexio.MIMXRT595S__config" ]
   public_deps = [
@@ -305,6 +322,7 @@ config("platform.drivers.flexio.MIMXRT595S__config") {
   include_dirs = [ "core/drivers/flexio" ]
 }
 pw_static_library("platform.drivers.flexio_spi.MIMXRT595S") {
+  check_includes = false
   public = [ "core/drivers/flexio/spi/fsl_flexio_spi.h" ]
   public_configs = [ ":platform.drivers.flexio_spi.MIMXRT595S__config" ]
   public_deps = [
@@ -319,6 +337,7 @@ config("platform.drivers.flexio_spi.MIMXRT595S__config") {
   include_dirs = [ "core/drivers/flexio/spi" ]
 }
 pw_static_library("platform.drivers.flexspi.MIMXRT595S") {
+  check_includes = false
   public = [ "core/drivers/flexspi/fsl_flexspi.h" ]
   public_configs = [ ":platform.drivers.flexspi.MIMXRT595S__config" ]
   public_deps = [
@@ -333,6 +352,7 @@ config("platform.drivers.flexspi.MIMXRT595S__config") {
   include_dirs = [ "core/drivers/flexspi" ]
 }
 pw_static_library("platform.drivers.i3c.MIMXRT595S") {
+  check_includes = false
   public = [ "core/drivers/i3c/fsl_i3c.h" ]
   public_configs = [ ":platform.drivers.i3c.MIMXRT595S__config" ]
   public_deps = [
@@ -347,6 +367,7 @@ config("platform.drivers.i3c.MIMXRT595S__config") {
   include_dirs = [ "core/drivers/i3c" ]
 }
 pw_static_library("platform.drivers.iap.MIMXRT595S") {
+  check_includes = false
   public = [ "core/devices/MIMXRT595S/drivers/fsl_iap.h" ]
   public_configs = [ ":platform.drivers.iap.MIMXRT595S__config" ]
   public_deps = [
@@ -361,6 +382,7 @@ config("platform.drivers.iap.MIMXRT595S__config") {
   include_dirs = [ "core/devices/MIMXRT595S/drivers" ]
 }
 pw_static_library("platform.drivers.inputmux.MIMXRT595S") {
+  check_includes = false
   public = [ "core/drivers/inputmux/fsl_inputmux.h" ]
   public_configs = [ ":platform.drivers.inputmux.MIMXRT595S__config" ]
   public_deps = [
@@ -376,6 +398,7 @@ config("platform.drivers.inputmux.MIMXRT595S__config") {
   include_dirs = [ "core/drivers/inputmux" ]
 }
 pw_static_library("platform.drivers.inputmux_connections.MIMXRT595S") {
+  check_includes = false
   public = [ "core/devices/MIMXRT595S/drivers/fsl_inputmux_connections.h" ]
   public_configs = [ ":platform.drivers.inputmux_connections.MIMXRT595S__config" ]
   public_deps = [
@@ -389,6 +412,7 @@ config("platform.drivers.inputmux_connections.MIMXRT595S__config") {
   include_dirs = [ "core/devices/MIMXRT595S/drivers" ]
 }
 pw_static_library("platform.drivers.lpc_dma.MIMXRT595S") {
+  check_includes = false
   public = [ "core/drivers/lpc_dma/fsl_dma.h" ]
   public_configs = [ ":platform.drivers.lpc_dma.MIMXRT595S__config" ]
   public_deps = [
@@ -403,6 +427,7 @@ config("platform.drivers.lpc_dma.MIMXRT595S__config") {
   include_dirs = [ "core/drivers/lpc_dma" ]
 }
 pw_static_library("platform.drivers.lpc_gpio.MIMXRT595S") {
+  check_includes = false
   public = [ "core/drivers/lpc_gpio/fsl_gpio.h" ]
   public_configs = [ ":platform.drivers.lpc_gpio.MIMXRT595S__config" ]
   public_deps = [
@@ -417,6 +442,7 @@ config("platform.drivers.lpc_gpio.MIMXRT595S__config") {
   include_dirs = [ "core/drivers/lpc_gpio" ]
 }
 pw_static_library("platform.drivers.lpc_iopctl.MIMXRT595S") {
+  check_includes = false
   public = [ "core/drivers/lpc_iopctl/fsl_iopctl.h" ]
   public_configs = [ ":platform.drivers.lpc_iopctl.MIMXRT595S__config" ]
   public_deps = [
@@ -430,6 +456,7 @@ config("platform.drivers.lpc_iopctl.MIMXRT595S__config") {
   include_dirs = [ "core/drivers/lpc_iopctl" ]
 }
 pw_static_library("platform.drivers.mu.MIMXRT595S") {
+  check_includes = false
   public = [ "core/drivers/mu/fsl_mu.h" ]
   public_configs = [ ":platform.drivers.mu.MIMXRT595S__config" ]
   public_deps = [
@@ -444,6 +471,7 @@ config("platform.drivers.mu.MIMXRT595S__config") {
   include_dirs = [ "core/drivers/mu" ]
 }
 pw_static_library("platform.drivers.pint.MIMXRT595S") {
+  check_includes = false
   public = [ "core/drivers/pint/fsl_pint.h" ]
   public_configs = [ ":platform.drivers.pint.MIMXRT595S__config" ]
   public_deps = [
@@ -458,6 +486,7 @@ config("platform.drivers.pint.MIMXRT595S__config") {
   include_dirs = [ "core/drivers/pint" ]
 }
 pw_static_library("platform.drivers.power.MIMXRT595S") {
+  check_includes = false
   public = [ "core/devices/MIMXRT595S/drivers/fsl_power.h" ]
   public_configs = [ ":platform.drivers.power.MIMXRT595S__config" ]
   public_deps = [
@@ -472,6 +501,7 @@ config("platform.drivers.power.MIMXRT595S__config") {
   include_dirs = [ "core/devices/MIMXRT595S/drivers" ]
 }
 pw_static_library("platform.drivers.reset.MIMXRT595S") {
+  check_includes = false
   public = [
     "core/devices/MIMXRT595S/drivers/fsl_clock.h",
     "core/devices/MIMXRT595S/drivers/fsl_reset.h",
@@ -499,6 +529,7 @@ config("platform.drivers.reset.MIMXRT595S__config") {
   ]
 }
 pw_static_library("platform.utilities.assert.MIMXRT595S") {
+  check_includes = false
   public = [ "core/utilities/assert/fsl_assert.h" ]
   public_configs = [ ":platform.utilities.assert.MIMXRT595S__config" ]
   public_deps = [
@@ -514,6 +545,7 @@ config("platform.utilities.assert.MIMXRT595S__config") {
   include_dirs = [ "core/utilities/assert" ]
 }
 pw_static_library("project_template.evkmimxrt595.MIMXRT595S") {
+  check_includes = false
   public = [
     "core/boards/evkmimxrt595/project_template/board.h",
     "core/boards/evkmimxrt595/project_template/clock_config.h",
@@ -555,6 +587,7 @@ config("project_template.evkmimxrt595.MIMXRT595S__config") {
   ]
 }
 pw_static_library("utility.debug_console.MIMXRT595S") {
+  check_includes = false
   public = [
     "core/utilities/debug_console/fsl_debug_console.h",
     "core/utilities/debug_console/fsl_debug_console_conf.h",
@@ -574,6 +607,7 @@ config("utility.debug_console.MIMXRT595S__config") {
   include_dirs = [ "core/utilities/debug_console" ]
 }
 pw_static_library("utility.str.MIMXRT595S") {
+  check_includes = false
   public = [ "core/utilities/str/fsl_str.h" ]
   public_configs = [ ":utility.str.MIMXRT595S__config" ]
   public_deps = [
