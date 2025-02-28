@@ -1,9 +1,13 @@
 
 # MCUXpresso-SDK
 
-This repository is auto-generated from the files from [NXP SDK code](https://github.com/nxp-mcuxpresso/mcux-sdk).
-The purpose of this repository is to be used as a module for [Pigweed](https://pigweed.dev) applications targeting the NXP RT595 MCUs.
-The repository includes bazel rules allowing seamless integration into Pigweed's build system.
+This repository is auto-generated from the files from
+[NXP SDK code](https://github.com/nxp-mcuxpresso/mcux-sdk) using
+[pw_build_mcuxpresso](https://pigweed.dev/pw_build_mcuxpresso/) pigweed module.
+The purpose of this repository is to be used as a module for
+[Pigweed](https://pigweed.dev) applications targeting the NXP RT595 MCUs.
+The repository includes bazel rules allowing seamless integration into
+Pigweed's build system.
 
 ## Used Revisions
 
@@ -54,9 +58,12 @@ The repository includes bazel rules allowing seamless integration into Pigweed's
 
 ## Running generation script locally
 
-The script used to generate this repository is part of [Pigweed](https://pigweed.dev).
-To generate this repository locally, you will have to [setup Pigweed](https://pigweed.dev/docs/get_started)
-on your machine. After that, you can run this command to generate this repository.
+The script used to generate this repository is part of
+[Pigweed](https://pigweed.dev).
+To generate this repository locally, you will have to
+[setup Pigweed](https://pigweed.dev/docs/get_started)
+on your machine. After that, you can run this command to generate this
+repository.
 
 ```sh
 bazelisk run //pw_build_mcuxpresso/py:mcuxpresso_builder -- EVK-MIMXRT595_manifest_v3_14.xml \
@@ -89,4 +96,5 @@ bazelisk run //pw_build_mcuxpresso/py:mcuxpresso_builder -- EVK-MIMXRT595_manife
 ```
 
 ## License
-Files taken from the NXP SDK repository are licensed under the BSD-3-Clause license.
+Files taken from the NXP SDK repository are licensed under the BSD-3-Clause
+license.

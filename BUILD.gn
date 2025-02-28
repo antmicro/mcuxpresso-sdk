@@ -143,17 +143,16 @@ pw_static_library("platform.drivers.clock.MIMXRT595S") {
   check_includes = false
   public = [
     "core/devices/MIMXRT595S/drivers/fsl_clock.h",
-    "core/devices/MIMXRT595S/drivers/fsl_reset.h",
     "core/drivers/common/fsl_common.h",
     "core/drivers/common/fsl_common_arm.h",
   ]
   public_configs = [ ":platform.drivers.clock.MIMXRT595S__config" ]
   public_deps = [
     ":device.MIMXRT595S_CMSIS.MIMXRT595S",
+    ":platform.drivers.reset.MIMXRT595S",
   ]
   sources = [
     "core/devices/MIMXRT595S/drivers/fsl_clock.c",
-    "core/devices/MIMXRT595S/drivers/fsl_reset.c",
     "core/drivers/common/fsl_common.c",
     "core/drivers/common/fsl_common_arm.c",
   ]
